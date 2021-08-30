@@ -2,7 +2,7 @@
 
 ## TODO: para todos fazerem
 
-- Pesquisar sobre *sensores ATmega*: chuva, pressão, umidade...
+- Pesquisar sobre *sensores ATmega*: pressão atmosférica, umidade relativa do ar, temperatura, velocidade e direção do vento, precipitação da chuva, radiação solar, umidade da folha
 - Revisar C
 - Baixar e instalar o compilador e a IDE
 
