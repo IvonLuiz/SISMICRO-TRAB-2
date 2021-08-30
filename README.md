@@ -3,6 +3,8 @@
 ## TODO: para todos fazerem
 
 - Pesquisar sobre *sensores ATmega*: chuva, pressão, umidade...
+- Revisar C
+- Baixar e instalar o compilador e a IDE
 
 ## TODO: para Sailon
 
