@@ -1,22 +1,17 @@
 # SISMICRO-TRAB-1
 
-## TODO: para todos fazerem
+# Index
 
-- Pesquisar sobre *sensores ATmega*: pressão atmosférica, umidade relativa do ar, temperatura, velocidade e direção do vento, precipitação da chuva, radiação solar, umidade da folha
-- Revisar C
-- Baixar e instalar o compilador e a IDE
+## Code guide-lines
 
-## TODO: para Sailon
+Manter os padrões de projeto é importante para mantermos a legibilidade do codigo. Assim, todos devem seguir as mesmas ideias de *clean code*.
 
-## TODO: para Carlos 
+- [Variáveis](./docs/pattern/variables.md)
+- [Funções](./docs/pattern/functions.md)
+- [Error Handling](./docs/pattern/errorHandling.md)
+- [Arquivos](./docs/pattern/filenames.md)
+- [Comentarios](./docs/pattern/coments.md)
 
+## Hints from compiler
 
-## TODO: para John 
-
-
-## TODO: para Miguel 
-
-
-## TODO: para Ivon
-
-
+As dicas do compilador podem ser encontradas [aqui](./docs/compierHints/index.md)
