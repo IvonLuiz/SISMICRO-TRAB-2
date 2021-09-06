@@ -3,10 +3,10 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>PROJETO-SISMICRO</name>
-            <creation-uuid>5e5f1bc0-1463-48c6-a58d-42899f7ef30d</creation-uuid>
+            <name>SISMICRO-TRAB-1</name>
+            <creation-uuid>8ffd4692-dad0-4081-9494-5efd29a385ae</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
             <header-extensions/>
             <asminc-extensions/>
