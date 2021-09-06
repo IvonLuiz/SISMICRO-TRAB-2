@@ -4,7 +4,7 @@ O atmega328 tem pouca memoria e estrutura de 8 bits por isso, é importante que 
 
 - #### Usar variáveis de 8 bits
 - #### Evitar recursão
-- #### Evite alocar grande quantidade de variáveis locais
+- #### Evite alocar grande quantidade de variáveis locais. Em vez disso, use variáveis globais.
 - #### Evite passar variáveis e estruturas por valor
 - #### Não use recursão
 - #### Cuidado com StackOverflow
