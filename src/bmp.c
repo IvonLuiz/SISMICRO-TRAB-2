@@ -1,6 +1,6 @@
 #include "BMP.h"
 
-// NOTE: Usando o PIN65, PD5
+// NOTE: Usando o PIND5, PD5
 
 void Request_BMP() // Microcontrole send start pulse
 {
