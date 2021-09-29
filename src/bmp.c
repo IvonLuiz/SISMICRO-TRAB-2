@@ -2,7 +2,7 @@
 
 // NOTE: Usando o PIND5, PD5
 
-void Request_BMP() // Microcontrole send start pulse
+void Request_BMP() // Microcontroller sends start pulse
 {
     DDRD |= (1 << DDD5);
     PORTD &= ~(1 << PB5);
