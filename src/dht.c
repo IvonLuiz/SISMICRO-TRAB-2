@@ -1,6 +1,6 @@
 #include "DHT.h"
 
-// Configura��es do DHT22
+// Configurações do DHT22
 #define __DHT_Temperature_Min	-40
 #define __DHT_Temperature_Max	80
 #define __DHT_Humidity_Min		0
