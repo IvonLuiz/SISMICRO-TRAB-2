@@ -9,14 +9,14 @@ int main(void) {
     // Iniciando o USART.
     // OBS: Para todos os comandos, verificar arquivo "USART.h"
     USART_Init(MYUBRR);
-    
+
     // Iniciando o sensor BH1750 juntamente com TWI.
     // OBS: Para todos os comandos, verificar arquivo "BH1750.h" e "TWI.h"
     bh1750_init();
-    
+
     // Iniciando interrupt
-	sei();
-    
+    sei();
+
     // Relembrando: DHT22 usa PIN6, PD6.
     uint8_t I_RH, D_RH, I_Temp, D_Temp, CheckSum;
 
@@ -55,24 +55,24 @@ int main(void) {
 
 
         CheckSum = Receive_data(); /* store next eight bit in CheckSum */
-        
-		// Pegar nível de lux
-		int lux = bh1750_getlux();
-		itoa(lux, luxbuff, 10); /* Convert integer to string */
-        
-		// Transmitir lux para USART
+
+        // Pegar nível de lux
+        int lux = bh1750_getlux();
+        itoa(lux, luxbuff, 10); /* Convert integer to string */
+
+        // Transmitir lux para USART
         i = 0;
         while (lum[i] != 0) /* print lum */ {
             USART_Transmit(lum[i]);
             i++;
         }
-        
+
         i = 0;
         while (luxbuff[i] != 0) /* print lux */ {
             USART_Transmit(luxbuff[i]);
             i++;
         }
-        
+
     }
     return 0;
 }

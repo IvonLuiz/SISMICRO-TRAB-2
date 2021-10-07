@@ -1,11 +1,13 @@
 #include <xc.h>
 #include <avr/io.h>
-#include <avr/delay.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <util/delay.h>
+#include "FCPU.h"
 
 
-// Configurações do DHT22
+
+// ConfiguraÃ§Ãµes do DHT22
 #define __DHT_Temperature_Min	-40
 #define __DHT_Temperature_Max	80
 #define __DHT_Humidity_Min		0

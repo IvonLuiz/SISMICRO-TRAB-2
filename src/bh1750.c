@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <util/delay.h>
+#include "FCPU.h"
 
 #include "BH1750.h"
 #include "I2C.h"
@@ -7,11 +8,11 @@
 /* Init BH1750 sensor */
 void bh1750_init() {
 
-	#if BH1750_I2CINIT == 1
+#if BH1750_I2CINIT == 1
 	// Init i2c
 	i2c_init();
 	_delay_us(10);
-	#endif
+#endif
 
 	// Write config
 	i2c_start_wait(BH1750_ADDR | I2C_WRITE);
@@ -29,6 +30,6 @@ uint16_t bh1750_getlux() {
 	ret |= i2c_readNak();
 	i2c_stop();
 
-	ret = ret/1.2;
+	ret = ret / 1.2;
 	return ret;
 }

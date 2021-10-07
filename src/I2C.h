@@ -22,7 +22,7 @@ extern unsigned char i2c_start(unsigned char addr);
 /* Issues a start condition and sends address and transfer direction */
 extern void i2c_start_wait(unsigned char addr);
 
- 
+
 /* Send one byte to I2C device */
 extern unsigned char i2c_write(unsigned char data);
 
