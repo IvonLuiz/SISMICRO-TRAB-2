@@ -29,8 +29,8 @@ uint8_t c = 0;
 uint8_t Receive_data() /* receive data */ {
     for (int q = 0; q < 8; q++) {
         while ((PIND & (1 << PIND6)) == 0); /* check received bit 0 or 1 */
-        _delay_ms(__DHT_Delay_Read);
-        if (PIND & (1 << PIND6))/* if high pulse is greater than 20ms */
+        _delay_us(30);
+        if (PIND & (1 << PIND6))/* if high pulse is greater than 30us */
             c = (c << 1) | (0x01); /* then its logic HIGH */
         else /* otherwise its logic LOW */
             c = (c << 1);
