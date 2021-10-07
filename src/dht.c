@@ -1,4 +1,5 @@
 #include "DHT.h"
+#include "FCPU.h"
 
 // Configurações do DHT22
 #define __DHT_Temperature_Min	-40

@@ -4,10 +4,7 @@
 #include "I2C.h"
 
 
-/* Define CPU frequency in Mhz here if not defined in Makefile */
-#ifndef     F_CPU
-#define     F_CPU       4000000UL
-#endif
+#include "FCPU.h"
 
 /* D i2c clock in Hz */
 #define     SCL_CLOCK   10000L

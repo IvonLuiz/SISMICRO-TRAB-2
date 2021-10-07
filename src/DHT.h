@@ -1,8 +1,10 @@
 #include <xc.h>
 #include <avr/io.h>
-#include <avr/delay.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <util/delay.h>
+#include "FCPU.h"
+
 
 
 // Configurações do DHT22
