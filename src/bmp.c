@@ -9,12 +9,10 @@ void Request_BMP() // Microcontroller sends start pulse
 	i2c_stop();
 }
 
-uint16_t response = 0;
+uint16_t ret_temp, ret_press = 0;
 // Variable time as it can have dif await times
 uint16_t Receive_data_BMP(uint8_t TIME)
 {
-   uint16_t ret_temp, ret_press = 0;
-
 	i2c_start_wait(__BMP_ADDR | I2C_READ);
 	ret_temp = i2c_readAck();
 	ret_temp <<= 8;
