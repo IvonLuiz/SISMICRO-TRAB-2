@@ -4,6 +4,7 @@
 #include "USART.h"
 #include "DHT.h"
 #include "BH1750.h"
+#include "BMP.h"
 
 int main(void) {
     // Iniciando o USART.
@@ -13,6 +14,7 @@ int main(void) {
     // Iniciando o sensor BH1750 juntamente com TWI.
     // OBS: Para todos os comandos, verificar arquivo "BH1750.h" e "TWI.h"
     bh1750_init();
+    Request_BMP();
 
     // Iniciando interrupt
     sei();
@@ -73,6 +75,20 @@ int main(void) {
             i++;
         }
 
+        lux = Receive_data_BMP();
+        itoa(lux, luxbuff, 10);
+
+        i = 0;
+        while (lum[i] != 0) {
+            USART_Transmit(lum[i]);
+            i++;
+        }
+
+        i = 0;
+        while (luxbuff[i] != 0) /* print lux */ {
+            USART_Transmit(luxbuff[i]);
+            i++;
+        }
     }
     return 0;
 }
