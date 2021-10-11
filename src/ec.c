@@ -1,7 +1,7 @@
 #include "EC.h"
 
 // Definição das variáveis
-uint8_t res;
+uint16_t res;
 uint8_t actual_state;
 uint8_t previous_state;
 uint8_t direction;
@@ -19,7 +19,7 @@ void init_EC()
     
 }
 
-uint8_t Receive_data_EC()
+uint16_t Receive_data_EC()
 {
     
     res = 0b00000000;                               // Zerando o contador
@@ -44,9 +44,9 @@ uint8_t Receive_data_EC()
     
     if((PINC & (1<<PINC0)) == (PINC &(1<<PINC)))    //Comparando os sinais de input para definir a direção do vento
     {
-        direction = 0b10000000;
+        direction = 0b0000000000000000;
     } else {
-        direction = 0b00000000;
+        direction = 0b1000000000000000;
     }
     
     res |= direction;                               //Aplicando uma máscara para que o MSB seja referente à direção
