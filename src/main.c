@@ -131,19 +131,21 @@ int main(void) {
         // Recebendo os dados do rotary encoder e transmitindo via USART
         Rotations = Receive_data_EC();
         i = 0;
-        while (temp[i] != 0) /* printar temp */ {
+        while (sent[i] != 0) {
             USART_Transmit(sent[i]);
             i++;
         }
-        USART_Transmit(Rotations && 0xFF); // Transmitindo primeiro byte
+        USART_Transmit(Rotations >> 15);
 
 
         i = 0;
-        while (temp[i] != 0) /* printar temp */ {
+        while (puls[i] != 0) {
             USART_Transmit(puls[i]);
             i++;
         }
-        USART_Transmit(Rotations >> 8); // Trasnmitindo segundo byte
+        USART_Transmit((Rotations >> 8) & 0b1111111101111111); // Trasnmitindo primeiro byte (mais significativos)
+        USART_Transmit(Rotations & 0xFF); // Transmitindo segundo byte (menos significativos))
+
 
 
         // ================
