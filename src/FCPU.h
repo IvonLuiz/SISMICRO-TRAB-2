@@ -1,3 +1,1 @@
-#ifndef F_CPU
-#define	F_CPU 4000000UL
-#endif
+#define F_CPU 1000000UL                             // Definindo a frequência de clock para 1MHz
