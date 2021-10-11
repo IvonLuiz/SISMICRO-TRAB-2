@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <avr/delay>
 
-// Cofigura��es do BMP180
+// Configurações do BMP180
 // Pressure in hPa
 // Temperature will have 16 bits
 // Pressure will have 16 to 19 bits 

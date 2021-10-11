@@ -1,6 +1,6 @@
 #include "EC.h"
 
-// Defini��o das vari�veis
+// Definição das variáveis
 uint16_t res;
 uint8_t actual_state;
 uint8_t previous_state;
@@ -27,14 +27,14 @@ uint16_t Receive_data_EC()
     TCCR1A = 0b00000000;
     TCCR1B = 0b00001101;                            //Ligando o modo CTC e prescaler CLK/1024
 
-    previous_state = (PINC & (1 << PINC0));           //Lendo o estado do PINC0 e armazenando na vari�vel previous_state
+    previous_state = (PINC & (1 << PINC0));           //Lendo o estado do PINC0 e armazenando na variável previous_state
 
-    while (!(TIFR0 & (1 << OCF0A)))                 //Executando o loop enquanto o contador n�o atinge o valor (0x1312)
+    while (!(TIFR0 & (1 << OCF0A)))                 //Executando o loop enquanto o contador não atinge o valor (0x1312)
     {
 
-        actual_state = (PINC & (1 << PINC0));         //Lendo novamnete o estado do PINC0 e armazenando na vari�vel actual_state
+        actual_state = (PINC & (1 << PINC0));         //Lendo novamnete o estado do PINC0 e armazenando na variável actual_state
 
-        if (actual_state != previous_state)          //Caso haja uma mudan�a de estado, outros pulsos est�o sendo enviados (rota��o ocorrendo)
+        if (actual_state != previous_state)          //Caso haja uma mudança de estado, outros pulsos estão sendo enviados (rotação ocorrendo)
         {
             res++;
             previous_state = actual_state;
@@ -42,7 +42,7 @@ uint16_t Receive_data_EC()
 
     }
 
-    if ((PINC & (1 << PINC0)) == (PINC & (1 << PINC)))    //Comparando os sinais de input para definir a dire��o do vento
+    if ((PINC & (1 << PINC0)) == (PINC & (1 << PINC)))    //Comparando os sinais de input para definir a direção do vento
     {
         direction = 0b0000000000000000;
     }
@@ -50,13 +50,13 @@ uint16_t Receive_data_EC()
         direction = 0b1000000000000000;
     }
 
-    res |= direction;                               //Aplicando uma m�scara para que o MSB seja referente � dire��o
+    res |= direction;                               //Aplicando uma máscara para que o MSB seja referente à direção
 
     TCCR1A = 0;
     TCCR1B = 0;                                     //Parando o contador
-    TIFR1 = (1 << OCF1A);                             //Limpando o OCF1A para a pr�xima contagem
+    TIFR1 = (1 << OCF1A);                             //Limpando o OCF1A para a próxima contagem
 
-    return res;                                     //Retornando o resultado da opera��o
+    return res;                                     //Retornando o resultado da operação
 
 }
 
