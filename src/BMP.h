@@ -1,18 +1,17 @@
 #include <avr/io.h>
-#include <avr/delay.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <avr/delay>
 
-// Cofigurações do BMP180
+
+// ConfiguraÃ§Ãµes do BMP180
 // Pressure in hPa
 // Temperature will have 16 bits
-// Pressure will have 16 to 19 bits 
+// Pressure will have 16 to 19 bits
 // ULP -> Ultra Low Power
 // STD -> Standard
 // HR -> High Resolution
 // UHR -> Ultra High Resolution
-#define __BMP_PRESSURE_MIN          300 
+#define __BMP_PRESSURE_MIN          300
 #define __BMP_PRESSURE_MAX          1100
 #define __BMP_TEMPERATURE_MIN       0
 #define __BMP_TEMPERATURE_MAX       60
@@ -28,13 +27,13 @@
 void Request_BMP(); /* Microcontroller send start pulse/request */
 
 /* Should be:
- *  | 
- *  | __BMP_TEMPERATURE_MAX 
+ *  |
+ *  | __BMP_TEMPERATURE_MAX
  *  V
  * TEMPERATURE
  *  |
  *  | PRESSURE DELAY
  *  V
  * PRESSURE
-*/
+ */
 uint16_t Receive_data_BMP(uint8_t TIME); /* receive data */

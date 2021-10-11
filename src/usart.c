@@ -1,34 +1,34 @@
 #include "USART.h"
 
 void USART_Init(unsigned int ubrr) {
-    /*Set baud rate */
-    UBRR0H = (unsigned char)(ubrr >> 8);
-    UBRR0L = (unsigned char)ubrr;
+    /* Setar baud rate */
+    UBRR0H = (unsigned char) (ubrr >> 8);
+    UBRR0L = (unsigned char) ubrr;
 
-    /* Enable receiver and transmitter */
+    /* Ativar receiver etransmitter */
     UCSR0B = (1 << RXEN0) | (1 << TXEN0);
 
-    /* Set frame format: 8data, 2stop bit */
+    /* Setar frame format: 8data, 2 stop bit */
     UCSR0C = (1 << USBS0) | (3 << UCSZ00);
 }
 
 void USART_Transmit(unsigned char data) {
-    /* Wait for empty transmit buffer */
+    /* Esperar para esvaziar o transmit buffer */
     while (!(UCSR0A & (1 << UDRE)));
-    /* Put data into buffer, sends the data */
+    /* Colocar data no buffer (enviar data) */
     UDR0 = data;
 }
 
 unsigned char USART_Receive(void) {
-    /* Wait for data to be received */
+    /* Esperar receber a data */
     while (!(UCSR0A & (1 << RXC)))
         ;
-    /* Get and return received data from buffer */
+    /* Retornar data recebida no buffer */
     return UDR0;
 }
 
 void USART_Flush(void) {
-    // Flushing the Receive Buffer:
+    // Dar Flush no o Receive Buffer:
     unsigned char dummy;
     while (UCSR0A & (1 << RXC)) dummy = UDR0;
 }
