@@ -6,7 +6,7 @@ uint8_t actual_state;
 uint8_t previous_state;
 uint16_t direction;
 
-void init_EC() {
+void EC_init() {
 
     // Vamos usar o PIN0, porta PC0 e o PIN1, porta PC1
 
@@ -43,7 +43,8 @@ uint16_t Receive_data_EC() {
     if ((PINC & (1 << PINC0)) == (PINC & (1 << PINC))) //Comparando os sinais de input para definir a direção do vento
     {
         direction = 0b0000000000000000;
-    } else {
+    }
+    else {
         direction = 0b1000000000000000;
     }
 
