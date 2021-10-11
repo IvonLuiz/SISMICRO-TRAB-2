@@ -24,7 +24,6 @@ int main(void) {
 
     // Para printar no USART:
     uint8_t i = 0;
-    unsigned char data[] = "Carlos e lindo";
     unsigned char temp[] = "Temperatura: ";
     unsigned char hum[] = "Umidade: ";
     unsigned char lum[] = "Luminosidade: ";

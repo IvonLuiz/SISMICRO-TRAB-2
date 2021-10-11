@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <avr/delay>
 
-// Cofigurações do BMP180
+// Cofiguraï¿½ï¿½es do BMP180
 // Pressure in hPa
 // Temperature will have 16 bits
 // Pressure will have 16 to 19 bits 
@@ -28,8 +28,8 @@
 void Request_BMP(); /* Microcontroller send start pulse/request */
 
 /* Should be:
- *  | 
- *  | __BMP_TEMPERATURE_MAX 
+ *  |
+ *  | __BMP_TEMPERATURE_MAX
  *  V
  * TEMPERATURE
  *  |
