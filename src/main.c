@@ -38,7 +38,7 @@ int main(void) {
         // Receber data:
         I_RH = Receive_data(); /* store first eight bit in I_RH */
         D_RH = Receive_data(); /* store next eight bit in D_RH */
-        while (data[i] != 0) /* print temp */ {
+        while (hum[i] != 0) /* print temp */ {
             USART_Transmit(hum[i]);
             i++;
         }
@@ -47,7 +47,7 @@ int main(void) {
 
         I_Temp = Receive_data(); /* store next eight bit in I_Temp */
         D_Temp = Receive_data(); /* store next eight bit in D_Temp */
-        while (data[i] != 0) /* print temp */ {
+        while (temp[i] != 0) /* print temp */ {
             USART_Transmit(temp[i]);
             i++;
         }
@@ -55,6 +55,9 @@ int main(void) {
         USART_Transmit(D_Temp);
 
 
+        // Checksum não usado no código,
+        // porém, pode ser usado para conferir
+        // se os dados estão corretos lá no Data Logger.
         CheckSum = Receive_data(); /* store next eight bit in CheckSum */
 
         // Pegar nÃ­vel de lux
@@ -74,7 +77,7 @@ int main(void) {
             i++;
         }
 
-        lux = Receive_data_BMP();
+        lux = Receive_data_BMP(__BMP_DELAY_PRESSURE_STD);
         itoa(lux, luxbuff, 10);
 
         i = 0;
@@ -88,6 +91,8 @@ int main(void) {
             USART_Transmit(luxbuff[i]);
             i++;
         }
+
+        USART_Flush();
     }
     return 0;
 }
